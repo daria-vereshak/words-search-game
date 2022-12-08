@@ -8,25 +8,27 @@
   <link rel="stylesheet" href="../styles/authorization/style.css">
 </head>
 <body>
-  <form>
-    <input checked="" id="signin" name="action" type="radio" value="signin">
-    <label for="signin">Sign in</label>
-    <input id="signup" name="action" type="radio" value="signup">
-    <label for="signup">Sign up</label>
+  <form id="authorization">
+    <input id="signin" name="action" type="radio" value="signin" checked>
+    <label for="signin">Авторизация</label>
+    <!-- <input id="signup" name="action" type="radio" value="signup">
+    <label for="signup">Регистрация</label> -->
     <div id="wrapper">
       <div id="arrow"></div>
-      <input id="email" placeholder="Email" type="text">
-      <input id="pass" placeholder="Password" type="password">
-      <input id="repass" placeholder="Repeat password" type="password">
+      <input id="name" placeholder="Имя пользователя" type="text">
+      <!-- <input id="pass" placeholder="Пароль" type="password">
+      <input id="repass" placeholder="Повторите пароль" type="password"> -->
     </div>
-    <button type="submit">
+    <button id="submit" type="submit">
       <span>
         <br>
-        Sign in
+        Авторизация
         <br>
-        Sign up
+        Регистрация
       </span>
     </button>
+    <span id="hint"></span>
   </form>
 </body>
+<script src="../js/authorization.js" type="module"></script>
 </html>
