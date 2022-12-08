@@ -5,10 +5,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Игра</title>
+  <link rel="stylesheet" href="./styles/game/style.css">
 </head>
 <body>
-The game will be here later.
-Check <a href="./pages/authorization.html">authorization</a>
+<!-- The game will be here later.
+Check <a href="./pages/authorization.html">authorization</a> -->
+  <form>
+    <input id="first" name="lvl" type="radio" value="1" checked>
+    <label for="first">Level 1</label>
+    <input id="second" name="lvl" type="radio" value="2">
+    <label for="second">Level 2</label>
+  </form>
+  <div class="wrapper">
+    <div class="field">Here is field for the game</div>
+    <div class="menu">
+      <div class="info">
+        <p class="name"></p>
+        <p class="score">Общий счет: <span class="score-num"></span> </p>
+      </div>
+      <div class="timer"> <span>Таймер</span> </div>
+      <button class="reset"> <span>Стоп</span> </button>
+      <button class="change"> <span>Сменить игрока</span> </button>
+    </div>
+  </div>
 </body>
 <script src="./js/main.js" type="module"></script>
 </html>

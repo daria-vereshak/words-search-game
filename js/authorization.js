@@ -10,7 +10,7 @@ const signIn = function () {
     score: 0,
     level: 1,
   }
-  localStorage.setItem('current_user', JSON.stringify(CURRENT_USER));
+  localStorage.setItem('user', JSON.stringify(CURRENT_USER));
   window.location.href = '../index.html';
 };
 
