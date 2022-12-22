@@ -53,17 +53,11 @@ input[type=radio] {
 }
 
 label {
-  cursor: pointer;
   display: inline-block;
   font-size: 22px;
   font-weight: 800;
   opacity: 0.5;
   text-transform: uppercase;
-}
-
-label:hover {
-  transition: all 0.3s cubic-bezier(0.6, 0, 0.4, 1);
-  opacity: 1;
 }
 
 label[for=first] {
@@ -174,4 +168,18 @@ button:hover {
 .wrong {
   background-color: rgb(229, 112, 112);
   cursor: default;
+}
+
+.zone {
+  display: flex;
+  flex-wrap: wrap;
+  width: 20%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.zone:nth-child(even) {
+  width: 60%;
+  background-color: rgba(7, 155, 207, 0.2);
 }/*# sourceMappingURL=style.css.map */

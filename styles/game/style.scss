@@ -27,16 +27,11 @@ form {
 input[type=radio] { display: none; }
 
 label {
-  cursor: pointer;
   display: inline-block;
   font-size: 22px;
   font-weight: 800;
   opacity: .5;
   text-transform: uppercase;
-}
-label:hover {
-  transition: all .3s cubic-bezier(.6,0,.4,1);
-  opacity: 1;
 }
 
 label[for="first"] { margin-right: 20px; }
@@ -128,8 +123,20 @@ button:hover {
   opacity: 0;
   cursor:default;
 }
-
 .wrong {
   background-color: rgb(229, 112, 112);
   cursor:default;
+}
+
+.zone {
+  display: flex;
+  flex-wrap: wrap;
+  width: 20%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+.zone:nth-child(even) {
+  width: 60%;
+  background-color: rgba(#079BCF, 0.2);
 }
