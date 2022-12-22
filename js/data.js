@@ -1,9 +1,62 @@
-const USERS = {
-  first: 10,
-  second: 30,
-  third: 15,
-  forth: 2
-};
-let jsonUsers = JSON.stringify(USERS);
+// const USERS = {
+//   first: 10,
+//   second: 30,
+//   third: 15,
+//   forth: 2
+// };
+// let jsonUsers = JSON.stringify(USERS);
+// localStorage.setItem('users', jsonUsers);
 
-localStorage.setItem('users', jsonUsers);
+const WORDS = [
+  {value: 'июнь', easyFirst: 0}, 
+  {value: 'потолок', easyFirst: 1}, 
+  {value: 'скорость', easyFirst: 0}, 
+  {value: 'министр', easyFirst: 1}, 
+  {value: 'адрес', easyFirst: 0}, 
+  {value: 'позиция', easyFirst: 0}, 
+  {value: 'май', easyFirst: 1}, 
+  {value: 'долг', easyFirst: 1}, 
+  {value: 'дом', easyFirst: 1}, 
+  {value: 'клетка', easyFirst: 0}, 
+  {value: 'основное', easyFirst: 1}, 
+  {value: 'июль', easyFirst: 0}, 
+  {value: 'предложение', easyFirst: 0}, 
+  {value: 'отличие', easyFirst: 1}, 
+  {value: 'ухо', easyFirst: 1}, 
+  {value: 'жертва', easyFirst: 0}, 
+  {value: 'источник', easyFirst: 0}, 
+  {value: 'общество', easyFirst: 1}, 
+  {value: 'храм', easyFirst: 1}, 
+  {value: 'сон', easyFirst: 1}, 
+  {value: 'церковь', easyFirst: 0}, 
+  {value: 'родственник', easyFirst: 1}, 
+  {value: 'память', easyFirst: 0}, 
+  {value: 'оценка', easyFirst: 1}, 
+  {value: 'сотрудник', easyFirst: 1}, 
+  {value: 'миг', easyFirst: 1}, 
+  {value: 'событие', easyFirst: 0}, 
+  {value: 'устройство', easyFirst: 1}, 
+  {value: 'суть', easyFirst: 0}, 
+  {value: 'трава', easyFirst: 0}, 
+  {value: 'ум', easyFirst: 0}, 
+  {value: 'штат', easyFirst: 1}, 
+  {value: 'эксперт', easyFirst: 0}, 
+  {value: 'монастырь', easyFirst: 0}, 
+  {value: 'подход', easyFirst: 1}, 
+  {value: 'шум', easyFirst: 1}, 
+  {value: 'течение', easyFirst: 0}, 
+  {value: 'мысль', easyFirst: 0}, 
+  {value: 'сотрудничество', easyFirst: 0}, 
+  {value: 'профессор', easyFirst: 1}, 
+  {value: 'переговоры', easyFirst: 0}, 
+  {value: 'нарушение', easyFirst: 0}, 
+  {value: 'мешок', easyFirst: 1}, 
+  {value: 'лед', easyFirst: 1}, 
+  {value: 'телевизор', easyFirst: 1}, 
+  {value: 'конструкция', easyFirst: 0}, 
+  {value: 'молодежь', easyFirst: 0}, 
+  {value: 'пора', easyFirst: 0}, 
+  {value: 'вариант', easyFirst: 1}, 
+  {value: 'ноябрь', easyFirst: 0}];
+
+export {WORDS};

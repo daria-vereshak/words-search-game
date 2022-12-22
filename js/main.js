@@ -1,4 +1,5 @@
 //import './data.js';
+import { displayCards } from "./display-level.js";
 
 //check authorization
 
@@ -9,3 +10,4 @@ document.querySelector('.name').textContent = current_user['name'];
 document.querySelector('.score-num').textContent = current_user['score'];
 
 //game
+displayCards();
