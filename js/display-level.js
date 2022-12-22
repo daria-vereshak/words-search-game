@@ -7,7 +7,7 @@ const templateCard = document.querySelector('#template-card').content;
 const field = document.querySelector('.field');
 
 function displayCards(difficulty, level = 1) {
-  const lvlWords = getRandomArrayElements(WORDS, LEVEL_WORDS_NUMBER);
+  const lvlWords = getRandomArrayElements(WORDS.slice(), LEVEL_WORDS_NUMBER);
 
   switch (difficulty) {
     case 'easy':

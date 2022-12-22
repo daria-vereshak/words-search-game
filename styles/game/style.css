@@ -34,6 +34,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.hidden {
+  display: none;
+}
+
 .wrapper, label, button span {
   transition: all 0.5s cubic-bezier(0.6, 0, 0.4, 1);
 }
@@ -119,7 +123,7 @@ button, .info, .timer {
 
 .info p {
   margin: 0;
-  padding: 15px;
+  padding: 7px 14px;
 }
 
 button {
@@ -127,8 +131,7 @@ button {
   cursor: pointer;
 }
 
-button, .timer span {
-  display: block;
+button, .timer {
   line-height: 72px;
   text-align: center;
   transform: translate3d(0, 0, 0);
