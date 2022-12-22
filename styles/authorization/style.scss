@@ -19,13 +19,9 @@ body {
 
 #wrapper { overflow: hidden; }
 
-#signin:checked ~ #wrapper { height: 178px; }
-#signin:checked ~ #wrapper #arrow { left: 32px; }
-#signin:checked ~ button span { transform: translate3d(0,-72px,0); }
+#easy:checked ~ #wrapper #arrow { left: 25px; }
 
-#signup:checked ~ #wrapper { height: 262px; }
-#signup:checked ~ #wrapper #arrow { left: 210px; }
-#signup:checked ~ button span { transform: translate3d(0,-144px,0); }
+#hard:checked ~ #wrapper #arrow { left: 140px; }
 
 form {
   width: 450px;
@@ -51,7 +47,7 @@ label:hover {
   transition: all .3s cubic-bezier(.6,0,.4,1);
   opacity: 1;
 }
-label[for="signin"] { margin-right: 20px; }
+label[for="easy"] { margin-right: 20px; }
 label[for="reset"] { float: right; }
 input[type=radio]:checked + label { opacity: 1; }
 
@@ -83,13 +79,7 @@ button {
   overflow: hidden;
   transition: all .3s cubic-bezier(.6,0,.4,1);
 }
-button span {
-  display: block;
-  line-height: 72px;
-  position: relative;
-  top: -2px;
-  transform: translate3d(0,0,0);
-}
+
 button:hover {
   background: #007BA5;
 }

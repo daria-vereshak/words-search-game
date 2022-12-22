@@ -38,28 +38,12 @@ body {
   overflow: hidden;
 }
 
-#signin:checked ~ #wrapper {
-  height: 178px;
+#easy:checked ~ #wrapper #arrow {
+  left: 25px;
 }
 
-#signin:checked ~ #wrapper #arrow {
-  left: 32px;
-}
-
-#signin:checked ~ button span {
-  transform: translate3d(0, -72px, 0);
-}
-
-#signup:checked ~ #wrapper {
-  height: 262px;
-}
-
-#signup:checked ~ #wrapper #arrow {
-  left: 210px;
-}
-
-#signup:checked ~ button span {
-  transform: translate3d(0, -144px, 0);
+#hard:checked ~ #wrapper #arrow {
+  left: 140px;
 }
 
 form {
@@ -90,7 +74,7 @@ label:hover {
   opacity: 1;
 }
 
-label[for=signin] {
+label[for=easy] {
   margin-right: 20px;
 }
 
@@ -130,14 +114,6 @@ button {
   margin-bottom: 10px;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.6, 0, 0.4, 1);
-}
-
-button span {
-  display: block;
-  line-height: 72px;
-  position: relative;
-  top: -2px;
-  transform: translate3d(0, 0, 0);
 }
 
 button:hover {
