@@ -1,15 +1,19 @@
 import { setEndFirstLevel } from "./first-level.js";
+let timer;
 
 const timerShow = document.querySelector('.timer');
+const deleteTimer = function () {
+  clearInterval(timer);
+  timerShow.textContent = '0:00';
+};
 const setTimer = function () {
-  let timeMinut = 0.1 * 60;
-  const timer = setInterval(function () {
+  let timeMinut = 1 * 60;
+  timer = setInterval(function () {
     const seconds = timeMinut % 60;
     const minutes = timeMinut / 60 % 60;
     // Условие если время закончилось то...
     if (timeMinut <= 0 || document.querySelector('.onOffButton').classList.contains('off')) {
-      clearInterval(timer);
-      timerShow.textContent = '0:00';
+      deleteTimer();
 
       setEndFirstLevel();
       if (timeMinut <= 0) { 
@@ -24,4 +28,4 @@ const setTimer = function () {
   }, 1000)
 };
 
-export { setTimer };
+export { setTimer, deleteTimer };

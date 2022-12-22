@@ -16,5 +16,12 @@ const getRandomArrayElements = (array, count) => {
   }
   return res;
 };
+const getCurrentFromStorage = function () {
+  return JSON.parse(localStorage.getItem('user'));
+}
 
-export {getRandomArrayElements};
+const putCurrentInStorage = function (user) {
+  localStorage.setItem('user', JSON.stringify(user));
+};
+
+export {getRandomArrayElements, putCurrentInStorage, getCurrentFromStorage};

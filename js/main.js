@@ -1,11 +1,12 @@
 //import './data.js';
 import { setTimer } from './timer.js'
 import { setBeginFirstLevel, setEndFirstLevel } from "./first-level.js";
+import { putCurrentInStorage, getCurrentFromStorage } from './util.js';
 
 //check authorization
 
 //display info about current user
-const current_user = JSON.parse(localStorage.getItem('user'));
+const current_user = getCurrentFromStorage();
 document.querySelector('.name').textContent = current_user['name'];
 document.querySelector('.score-num').textContent = current_user['score'];
 const difficulty = current_user['difficulty'];
@@ -31,4 +32,12 @@ const onButton = function () {
 
 onOffButton.addEventListener('click', onButton);
 
+const toNextLvl = document.querySelector('.to-next-lvl');
 
+const setToNextLvl = function () {
+  current_user['score'] = Number(document.querySelector('.score-num').textContent);
+  current_user['level'] = current_user['level'] + 1;
+  putCurrentInStorage(current_user);
+};
+
+toNextLvl.addEventListener('click', setToNextLvl);

@@ -1,14 +1,14 @@
 import { WORDS } from "./data.js";
 import { getRandomArrayElements } from "./util.js";
 
-const LEVEL_WORDS_NUMBER = 42;
+const LEVEL_WORDS_NUMBER = 5;
 
 const templateCard = document.querySelector('#template-card').content;
 const field = document.querySelector('.field');
 
 function displayCards(difficulty, level = 1) {
   const lvlWords = getRandomArrayElements(WORDS.slice(), LEVEL_WORDS_NUMBER);
-
+  let numRight = 0;
   switch (difficulty) {
     case 'easy':
       switch (level) {
@@ -18,6 +18,7 @@ function displayCards(difficulty, level = 1) {
             card.querySelector('.word').textContent = element.value;
             card.querySelector('.ans').textContent = element.easyFirst;
             field.append(card);
+            numRight += element.easyFirst;
           });
           break;
         case 2: 
@@ -33,6 +34,7 @@ function displayCards(difficulty, level = 1) {
             card.querySelector('.word').textContent = element.value;
             card.querySelector('.ans').textContent = element.hardFirst;
             field.append(card);
+            numRight += element.hardFirst;
           });
           break;
         case 2: 
@@ -41,6 +43,7 @@ function displayCards(difficulty, level = 1) {
       }
       break;
   }
+  return numRight;
 };
 
 const onOffButton = document.querySelector('.onOffButton');
