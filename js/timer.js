@@ -7,7 +7,7 @@ const deleteTimer = function () {
   timerShow.textContent = '0:00';
 };
 const setTimer = function () {
-  let timeMinut = 2 * 60;
+  let timeMinut = 1 * 60;
   timer = setInterval(function () {
     const seconds = timeMinut % 60;
     const minutes = timeMinut / 60 % 60;

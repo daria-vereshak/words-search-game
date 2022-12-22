@@ -1,8 +1,8 @@
 import { WORDS } from "./data.js";
 import { getRandomArrayElements } from "./util.js";
 
-const FIRST_WORDS_NUMBER = 5;
-const SECOND_WORDS_NUMBER = 2;
+const FIRST_WORDS_NUMBER = 30;
+const SECOND_WORDS_NUMBER = 18;
 
 const templateCard = document.querySelector('#template-card').content;
 const templateZone = document.querySelector('#template-zone').content;
@@ -11,7 +11,17 @@ const field = document.querySelector('.field');
 function displayZone () {
   for (let i = 0; i < 3; i++) {
     const zone = templateZone.cloneNode(true);
-    if (i === 1) zone.firstElementChild.classList.add('pool');
+    switch (i) {
+      case 1: 
+        zone.firstElementChild.classList.add('pool');
+        break;
+      case 0:
+        zone.firstElementChild.id = 'l-zone';
+        break;
+      case 2:
+        zone.firstElementChild.id = 'r-zone';
+        break;  
+    }
     field.append(zone);
   }
 };

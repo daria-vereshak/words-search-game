@@ -1,7 +1,10 @@
 //import './data.js';
 
 //key - name, value - score
-const USERS = JSON.parse(localStorage.getItem('users'));
+let USERS = JSON.parse(localStorage.getItem('users'));
+
+const current_user = JSON.parse(localStorage.getItem('user'));
+USERS[current_user['name']] = current_user['score'];
 
 const list = document.querySelector('.list');
 

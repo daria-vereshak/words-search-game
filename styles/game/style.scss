@@ -68,7 +68,7 @@ button, .info, .timer {
   color: #fff;
   font-family: 'Raleway', sans-serif;
   font-size: 20px;
-  height: 72px;
+  height: 50px;
   width: 100%;
   margin-bottom: 10px;
   overflow: hidden;
@@ -88,7 +88,7 @@ button {
   cursor: pointer;  
 }
 button, .timer {
-  line-height: 72px;
+  line-height: 50px;
   text-align: center;
   transform: translate3d(0,0,0);
 }
@@ -99,18 +99,17 @@ button:hover {
 .card {
   margin: 5px;
   width:150px; 
-  height:64px; 
-  background-color:bisque; 
+  height:40px; 
+  background-color: #6ED0F6; 
   border-radius: 8px;
   color: black;
-  //cursor:pointer;
   transition: opacity 1s ease-in-out;
 
   position: relative; //УБРАТЬ
 }
 .word {
   margin: 0;
-  line-height: 64px;
+  line-height: 40px;
   text-align: center;
 }
 .ans {//СКРЫТЬ

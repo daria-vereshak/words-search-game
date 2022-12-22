@@ -12,8 +12,7 @@ document.querySelector('.name').textContent = current_user['name'];
 document.querySelector('.score-num').textContent = current_user['score'];
 const difficulty = current_user['difficulty'];
 document.querySelector('.difficulty-lvl').textContent = difficulty === 'easy' ? 'легко' : 'сложно';
-let level = current_user['level'];
-if (level >= 2) document.querySelector('#second').checked = true;
+if (current_user['level'] >= 2) document.querySelector('#second').checked = true;
 
 const displayTask = function (difficulty, level) {
   if (level === 1) {
@@ -25,14 +24,16 @@ const displayTask = function (difficulty, level) {
     else document.querySelector('.task-text').textContent = 'Слова мужского рода должны быть слева, остальные - справа';
   }
 };
-displayTask(difficulty, level);
+displayTask(difficulty, current_user['level']);
 
 //game
 const onOffButton = document.querySelector('.onOffButton');
 
 const offButton = function () {
-  if (level === 1) setEndFirstLevel();
-  else setEndSecondLevel();
+  if (current_user['level'] === 1) setEndFirstLevel();
+  else {
+    if (setEndSecondLevel()) current_user['level']++;
+  }
   onOffButton.removeEventListener('click', offButton);
   onOffButton.addEventListener('click', onButton);
 };
@@ -40,8 +41,8 @@ const offButton = function () {
 const onButton = function () {
   onOffButton.removeEventListener('click', onButton);
   onOffButton.addEventListener('click', offButton);
-  if (level === 1) setBeginFirstLevel(difficulty);
-  else setBeginSecondLevel(difficulty);
+  if (current_user['level'] === 1) setBeginFirstLevel(difficulty);
+  else setBeginSecondLevel(difficulty, current_user['score']);
   setTimer();
 }
 
@@ -55,7 +56,23 @@ const setToNextLvl = function () {
   putCurrentInStorage(current_user);
   document.querySelector('#second').checked = true;
   toNextLvl.classList.add('hidden');
-  displayTask(difficulty, level);
+  displayTask(difficulty, current_user['level']);
+  while (document.querySelector('.field').firstChild) {
+    document.querySelector('.field').firstChild.remove();
+  }
+  onOffButton.removeEventListener('click', offButton);
+  onOffButton.addEventListener('click', onButton);
+  onOffButton.textContent = 'Начать';
 };
 
 toNextLvl.addEventListener('click', setToNextLvl);
+
+const toRating = function (evt) {
+  evt.preventDefault();
+  if(current_user['level'] >= 2) {
+    current_user['score'] = Number(document.querySelector('.score-num').textContent);
+    putCurrentInStorage(current_user);
+  }
+  window.location.href = '../pages/rating.html';
+}
+document.querySelector('.rating').addEventListener('click', toRating);

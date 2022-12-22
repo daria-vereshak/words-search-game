@@ -6,53 +6,45 @@ const EASY_FORFAIT = 1.5;
 const HARD_FORFAIT = 2;
 
 const field = document.querySelector('.field');
-//const progress = document.querySelector('.have-progress');
 const score = document.querySelector('.score-num');
 let difficultyLvl = 'easy';
-
-// const setOnCard = function (evt) {
-//   const currentCard = evt.target.parentNode;
-//   if (currentCard.classList.contains('card')) {
-//     const answer = currentCard.querySelector('.ans').textContent;
-//     if (answer === '1') {
-//       currentCard.classList.add('right');
-//       progress.textContent = `${Number(progress.textContent) + 1}`;
-//       score.textContent = `${Number(score.textContent) + ACCRUAL}`;
-//     } else {
-//       currentCard.classList.add('wrong');
-//       const subtraction = difficultyLvl === 'easy' ? EASY_FORFAIT : HARD_FORFAIT;
-//       score.textContent = `${Number(score.textContent) - subtraction}`;
-//     }
-//   }
-//   if (progress.textContent === document.querySelector('.need-progress').textContent.substring(1)) {
-//     setEndSecondLevel(true);
-//   }
-// };
 
 const allowDrop = function (evt) {
   evt.preventDefault();
 };
 const drag = function (evt) {
   evt.dataTransfer.setData('id', evt.target.id);
-  console.log(evt.target.id)
 };
 const drop = function (evt) {
-  const itemId = evt.dataTransfer.getData('id');
-  evt.target.append(document.getElementById(itemId));
-  document.getElementById(itemId).draggable = false;
+  const element = document.getElementById(evt.dataTransfer.getData('id'));
+  evt.target.append(element);
+  const parent = element.parentNode;
+  if (parent.id !== '') {
+    element.draggable = false;
+    element.removeEventListener('dragstart', drag);
+  }
+  const answer = element.querySelector('.ans').textContent;
+  if(parent.id === 'l-zone' && answer === '1' || parent.id === 'r-zone' && answer === '2') {
+    score.textContent = `${Number(score.textContent) + ACCRUAL}`;
+  } else if (parent.id !== '')
+  {
+    const subtraction = difficultyLvl === 'easy' ? EASY_FORFAIT : HARD_FORFAIT;
+    score.textContent = `${Number(score.textContent) - subtraction}`;
+  }
+  const pool = document.querySelector('.pool');
+  if (!pool.firstElementChild) {
+    setEndSecondLevel(true);
+  };
 };
 
-
-const setBeginSecondLevel = function (difficulty) {
+const setBeginSecondLevel = function (difficulty, prevScore) {
   difficultyLvl = difficulty;
-  score.textContent = 0;
+  score.textContent = prevScore;
   document.querySelector('.to-next-lvl').classList.add('hidden');
   inGame();
-  const numRight = displayCards(difficulty, 2);
+  displayCards(difficulty, 2);
 
-  const pool = document.querySelector('.pool');
-
-  const cards = pool.querySelectorAll('.card');
+  const cards = document.querySelector('.pool').querySelectorAll('.card');
   cards.forEach(element => {
     element.addEventListener('dragstart', drag);
   });
@@ -64,20 +56,16 @@ const setBeginSecondLevel = function (difficulty) {
   });
 };
 
-const setEndSecondLevel = function (isVictory = false) {
+const setEndSecondLevel = function (isEmpty = false) {
   deleteTimer();
-  const pool = document.querySelector('.pool');
-  pool.removeEventListener('dragover', allowDrop);
-  //pool.removeEventListener('dragstart', drag);
-  //pool.removeEventListener('drop', drop);
   while (field.firstChild) {
     field.firstChild.remove();
   }
   outGame();
-  if (isVictory) {
-    document.querySelector('.to-next-lvl').classList.remove('hidden');
-    field.textContent = 'Победа! Игра окончена';
+  if (isEmpty) {
+    field.textContent = 'Поздравляю! Игра окончена';
   }
+  return isEmpty;
 };
 
-export { setBeginSecondLevel, setEndSecondLevel }
+export { setBeginSecondLevel, setEndSecondLevel };
