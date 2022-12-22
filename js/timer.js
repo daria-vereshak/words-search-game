@@ -1,6 +1,8 @@
+import { setEndFirstLevel } from "./first-level.js";
+
 const timerShow = document.querySelector('.timer');
-let timeMinut = 0.2 * 60;
 const setTimer = function () {
+  let timeMinut = 0.1 * 60;
   const timer = setInterval(function () {
     const seconds = timeMinut % 60;
     const minutes = timeMinut / 60 % 60;
@@ -9,11 +11,10 @@ const setTimer = function () {
       clearInterval(timer);
       timerShow.textContent = '0:00';
 
-      const field = document.querySelector('.field');
-      while (field.firstChild) {
-        field.firstChild.remove();
+      setEndFirstLevel();
+      if (timeMinut <= 0) { 
+        document.querySelector('.field').textContent = 'Время вышло';
       }
-      if (timeMinut <= 0) field.textContent = 'Время вышло';
       
     } else {
         let strTimer = `${Math.trunc(minutes)}:${seconds}`;

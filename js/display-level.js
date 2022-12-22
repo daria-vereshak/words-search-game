@@ -41,8 +41,22 @@ function displayCards(difficulty, level = 1) {
       }
       break;
   }
-
-  
 };
 
-export {displayCards};
+const onOffButton = document.querySelector('.onOffButton');
+
+function inGame () {
+  onOffButton.classList.replace('off', 'on');
+  document.querySelector('.rating').classList.add('hidden');
+  document.querySelector('.timer').classList.remove('hidden');
+  document.querySelector('.onOffButton').textContent = 'Остановить';
+}
+
+function outGame () {
+  onOffButton.classList.replace('on', 'off');
+  document.querySelector('.rating').classList.remove('hidden');
+  document.querySelector('.timer').classList.add('hidden');
+  document.querySelector('.onOffButton').textContent = 'Начать заново';
+}
+
+export {displayCards, inGame, outGame};

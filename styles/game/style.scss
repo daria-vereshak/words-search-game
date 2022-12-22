@@ -108,6 +108,8 @@ button:hover {
   background-color:bisque; 
   border-radius: 8px;
   color: black;
+  cursor:pointer;
+  transition: opacity 1s ease-in-out;
 
   position: relative; //УБРАТЬ
 }
@@ -120,4 +122,14 @@ button:hover {
   position: absolute;
   left: 0;
   top: 0;
+}
+.right {
+  background-color: rgb(142, 234, 142);
+  opacity: 0;
+  cursor:default;
+}
+
+.wrong {
+  background-color: rgb(229, 112, 112);
+  cursor:default;
 }

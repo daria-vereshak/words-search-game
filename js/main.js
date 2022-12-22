@@ -1,6 +1,6 @@
 //import './data.js';
-import { displayCards } from "./display-level.js";
 import { setTimer } from './timer.js'
+import { setBeginFirstLevel, setEndFirstLevel } from "./first-level.js";
 
 //check authorization
 
@@ -17,22 +17,15 @@ else document.querySelector('.task-text').textContent = 'В слове не бо
 const onOffButton = document.querySelector('.onOffButton');
 
 const offButton = function () {
+  setEndFirstLevel();
   onOffButton.removeEventListener('click', offButton);
   onOffButton.addEventListener('click', onButton);
-  onOffButton.classList.replace('on', 'off');
-  document.querySelector('.rating').classList.remove('hidden');
-  document.querySelector('.timer').classList.add('hidden');
-  document.querySelector('.onOffButton').textContent = 'Начать заново';
 };
 
 const onButton = function () {
   onOffButton.removeEventListener('click', onButton);
   onOffButton.addEventListener('click', offButton);
-  onOffButton.classList.replace('off', 'on');
-  document.querySelector('.rating').classList.add('hidden');
-  document.querySelector('.timer').classList.remove('hidden');
-  document.querySelector('.onOffButton').textContent = 'Остановить';
-  displayCards(difficulty);
+  setBeginFirstLevel(difficulty);
   setTimer();
 }
 
