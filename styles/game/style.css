@@ -54,7 +54,7 @@ input[type=radio] {
 
 label {
   display: inline-block;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 800;
   opacity: 0.5;
   text-transform: uppercase;
@@ -101,7 +101,7 @@ button, .info, .timer {
   border-radius: 8px;
   color: #fff;
   font-family: "Raleway", sans-serif;
-  font-size: 27px;
+  font-size: 20px;
   height: 72px;
   width: 100%;
   margin-bottom: 10px;
@@ -142,7 +142,6 @@ button:hover {
   background-color: bisque;
   border-radius: 8px;
   color: black;
-  cursor: pointer;
   transition: opacity 1s ease-in-out;
   position: relative;
 }

@@ -6,28 +6,42 @@ const EASY_FORFAIT = 1.5;
 const HARD_FORFAIT = 2;
 
 const field = document.querySelector('.field');
-const progress = document.querySelector('.have-progress');
+//const progress = document.querySelector('.have-progress');
 const score = document.querySelector('.score-num');
 let difficultyLvl = 'easy';
 
-const setOnCard = function (evt) {
-  const currentCard = evt.target.parentNode;
-  if (currentCard.classList.contains('card')) {
-    const answer = currentCard.querySelector('.ans').textContent;
-    if (answer === '1') {
-      currentCard.classList.add('right');
-      progress.textContent = `${Number(progress.textContent) + 1}`;
-      score.textContent = `${Number(score.textContent) + ACCRUAL}`;
-    } else {
-      currentCard.classList.add('wrong');
-      const subtraction = difficultyLvl === 'easy' ? EASY_FORFAIT : HARD_FORFAIT;
-      score.textContent = `${Number(score.textContent) - subtraction}`;
-    }
-  }
-  if (progress.textContent === document.querySelector('.need-progress').textContent.substring(1)) {
-    setEndSecondLevel(true);
-  }
+// const setOnCard = function (evt) {
+//   const currentCard = evt.target.parentNode;
+//   if (currentCard.classList.contains('card')) {
+//     const answer = currentCard.querySelector('.ans').textContent;
+//     if (answer === '1') {
+//       currentCard.classList.add('right');
+//       progress.textContent = `${Number(progress.textContent) + 1}`;
+//       score.textContent = `${Number(score.textContent) + ACCRUAL}`;
+//     } else {
+//       currentCard.classList.add('wrong');
+//       const subtraction = difficultyLvl === 'easy' ? EASY_FORFAIT : HARD_FORFAIT;
+//       score.textContent = `${Number(score.textContent) - subtraction}`;
+//     }
+//   }
+//   if (progress.textContent === document.querySelector('.need-progress').textContent.substring(1)) {
+//     setEndSecondLevel(true);
+//   }
+// };
+
+const allowDrop = function (evt) {
+  evt.preventDefault();
 };
+const drag = function (evt) {
+  evt.dataTransfer.setData('id', evt.target.id);
+  console.log(evt.target.id)
+};
+const drop = function (evt) {
+  const itemId = evt.dataTransfer.getData('id');
+  evt.target.append(document.getElementById(itemId));
+  document.getElementById(itemId).draggable = false;
+};
+
 
 const setBeginSecondLevel = function (difficulty) {
   difficultyLvl = difficulty;
@@ -35,21 +49,34 @@ const setBeginSecondLevel = function (difficulty) {
   document.querySelector('.to-next-lvl').classList.add('hidden');
   inGame();
   const numRight = displayCards(difficulty, 2);
-  progress.textContent = '0';
-  //document.querySelector('.need-progress').textContent = `/${numRight}`;
-  field.addEventListener('click', setOnCard);
+
+  const pool = document.querySelector('.pool');
+
+  const cards = pool.querySelectorAll('.card');
+  cards.forEach(element => {
+    element.addEventListener('dragstart', drag);
+  });
+
+  const zones = document.querySelectorAll('.zone');
+  zones.forEach(element => {
+    element.addEventListener('drop', drop);
+    element.addEventListener('dragover', allowDrop);
+  });
 };
 
 const setEndSecondLevel = function (isVictory = false) {
   deleteTimer();
-  field.removeEventListener('click', setOnCard); 
+  const pool = document.querySelector('.pool');
+  pool.removeEventListener('dragover', allowDrop);
+  //pool.removeEventListener('dragstart', drag);
+  //pool.removeEventListener('drop', drop);
   while (field.firstChild) {
     field.firstChild.remove();
   }
   outGame();
   if (isVictory) {
     document.querySelector('.to-next-lvl').classList.remove('hidden');
-    field.textContent = 'Победа! Можете перейти на следуюший уровень';
+    field.textContent = 'Победа! Игра окончена';
   }
 };
 

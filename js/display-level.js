@@ -2,7 +2,7 @@ import { WORDS } from "./data.js";
 import { getRandomArrayElements } from "./util.js";
 
 const FIRST_WORDS_NUMBER = 5;
-const SECOND_WORDS_NUMBER = 20;
+const SECOND_WORDS_NUMBER = 2;
 
 const templateCard = document.querySelector('#template-card').content;
 const templateZone = document.querySelector('#template-zone').content;
@@ -40,8 +40,10 @@ function displayCards(difficulty, level = 1) {
             const card = templateCard.cloneNode(true);
             card.querySelector('.word').textContent = element.value;
             card.querySelector('.ans').textContent = element.easySecond;
+            card.firstElementChild.id = numRight;
+            card.firstElementChild.draggable = true;
             pool.append(card);
-            numRight += element.easyFirst;
+            numRight++;
           });
           break;
       }      
@@ -65,8 +67,10 @@ function displayCards(difficulty, level = 1) {
             const card = templateCard.cloneNode(true);
             card.querySelector('.word').textContent = element.value;
             card.querySelector('.ans').textContent = element.hardSecond;
+            card.firstElementChild.id = numRight;
+            card.firstElementChild.draggable = true;
             pool.append(card);
-            numRight += element.easyFirst;
+            numRight++;
           });
           break;
       }
