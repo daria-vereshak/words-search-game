@@ -209,10 +209,6 @@ button.green-mode:hover {
   background: #0ea500;
 }
 
-.card.green-mode {
-  background-color: #6ef673;
-}
-
 #theme {
   display: flex;
   background: none;

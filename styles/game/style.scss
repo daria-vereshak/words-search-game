@@ -122,6 +122,7 @@ button:hover {
   text-align: center;
 }
 .ans {//СКРЫТЬ
+  //display: none;
   position: absolute;
   left: 0;
   top: 0;
@@ -168,9 +169,6 @@ button.green-mode, .info.green-mode, .timer.green-mode {
 }
 button.green-mode:hover {
   background: $dark-gr;
-}
-.card.green-mode {
-  background-color:$light-gr;
 }
 #theme {
   display: flex;
