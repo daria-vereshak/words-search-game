@@ -49,7 +49,7 @@ const setEndFirstLevel = function (isVictory = false) {
   outGame();
   if (isVictory) {
     document.querySelector('.to-next-lvl').classList.remove('hidden');
-    field.textContent = 'Победа! Можете перейти на следуюший уровень';
+    field.textContent = 'Победа! Можете перейти на следуюший уровень. Чтобы пройти уровень ещё раз, нажмите кнопку "Начать заново" дважды';
   }
 };
 

@@ -63,7 +63,7 @@ const setEndSecondLevel = function (isEmpty = false) {
   }
   outGame();
   if (isEmpty) {
-    field.textContent = 'Поздравляю! Игра окончена';
+    field.textContent = 'Поздравляю! Игра окончена. Чтобы пройти уровень ещё раз, нажмите кнопку "Начать заново" дважды';
   }
   return isEmpty;
 };

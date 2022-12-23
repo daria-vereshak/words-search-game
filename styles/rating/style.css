@@ -55,6 +55,21 @@ li {
   font-size: 27px;
 }
 
+button {
+  background: #079BCF;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Raleway", sans-serif;
+  font-size: 27px;
+  height: 72px;
+  width: 100%;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.6, 0, 0.4, 1);
+}
+
 body.green-mode {
   background: #6ef673;
 }
@@ -71,6 +86,14 @@ body.green-mode {
 
 .green {
   background-color: #6ef673;
+}
+
+button.green-mode {
+  background: #11cf07;
+}
+
+button.green-mode:hover {
+  background: #0ea500;
 }
 
 #theme {
