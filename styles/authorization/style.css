@@ -128,4 +128,38 @@ button:hover {
   border-right: 10px solid transparent;
   position: relative;
   left: 32px;
+}
+
+body.green-mode {
+  background: #6ef673;
+}
+
+.blue, .green {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+.blue {
+  background-color: #6ED0F6;
+}
+
+.green {
+  background-color: #6ef673;
+}
+
+button.green-mode {
+  background: #11cf07;
+}
+
+button.green-mode:hover {
+  background: #0ea500;
+}
+
+#theme {
+  display: flex;
+  background: none;
+  width: 70px;
+  height: 27px;
+  margin: 0;
 }/*# sourceMappingURL=style.css.map */

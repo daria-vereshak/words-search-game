@@ -36,3 +36,26 @@ li {
   margin-bottom: 10px;
   font-size: 27px;
 }
+
+body.green-mode {
+  background: #6ef673;
+}
+.blue, .green {
+  width: 25px; 
+  height: 25px; 
+  border-radius: 50%;
+}
+.blue {
+  background-color:#6ED0F6;
+}
+.green {
+  background-color:#6ef673;
+}
+#theme {
+  display: flex;
+  background:none;
+  width: 70px;
+  height: 27px;
+  margin: 0;
+  border:none;
+}

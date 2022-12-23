@@ -8,6 +8,7 @@ import { putCurrentInStorage, getCurrentFromStorage } from './util.js';
 
 //display info about current user
 const current_user = getCurrentFromStorage();
+if (!current_user) window.location.href = '../pages/authrization.html';
 document.querySelector('.name').textContent = current_user['name'];
 document.querySelector('.score-num').textContent = current_user['score'];
 const difficulty = current_user['difficulty'];
